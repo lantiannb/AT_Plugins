@@ -6,13 +6,24 @@
 #include "HAL/Runnable.h"
 
 
- UENUM(BlueprintType)
+
+/*************************************************
+
+Author:蓝天
+
+Date:2022-1-27
+
+Description:
+创建线程类   
+
+**************************************************/
+
+UENUM(BlueprintType)
  enum class ThreadState : uint8 {
 	 eRun,
 	 ePause,
 	 eClose
  };
-
 
 class AT_ALGORITHM_API AT_AsyncBindEvent: public FRunnable
 {
@@ -37,9 +48,9 @@ public:
 
 /********************************Function****************************************/
 public:
-	virtual bool Init() override;			// 初始化线程
-	virtual uint32 Run() override;		// 执行线程
-	virtual void Stop() override;		// 暂停线程
+	virtual bool Init() override;			// 初始化线程				生成时自动执行		若返回true则自动调用Run
+	virtual uint32 Run() override;		// 执行线程							
+	virtual void Stop() override;		// 暂停线程					用处不大，这里没有实现		
 	virtual void Exit() override;		// 退出 Run结束自动执行
 
 public:

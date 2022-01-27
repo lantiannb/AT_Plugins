@@ -76,7 +76,6 @@ void AT_AsyncBindEvent::CloseThread(){
 		this->AsyncThreadState = ThreadState::eClose;
 		this->WakeUpThread();
 	}
-
 	else {
 		this->AsyncThreadState = ThreadState::eClose;
 	}
@@ -121,7 +120,6 @@ bool AT_AsyncBindEvent::SetThreadState(const FString& ThreadNameIn, ThreadState 
 		}
 		else {
 			AT_AsyncBindEvent::ThreadMap.Remove(ThreadNameIn);
-			
 		}
 		return true;
 	}

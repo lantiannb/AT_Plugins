@@ -35,3 +35,9 @@ void UAT_AsyncBindFunBPLibrary::ClearAllAsyncEvent(){
 bool UAT_AsyncBindFunBPLibrary::AsyncEventIsValid(FString ThreadNameIn){
 	return AT_AsyncBindEvent::ThreadMap.Find(ThreadNameIn) != nullptr;
 }
+
+TArray<FString> UAT_AsyncBindFunBPLibrary::GetAllAsyncThreadName(){
+	TSet<FString> Res;
+	AT_AsyncBindEvent::ThreadMap.GetKeys(Res);
+	return Res.Array();
+}
